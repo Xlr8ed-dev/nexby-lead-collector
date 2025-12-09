@@ -24,3 +24,4 @@ logs/
 # Docker
 Dockerfile
 docker-compose.yml
+db.sqlite3

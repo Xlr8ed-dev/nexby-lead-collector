@@ -13,14 +13,13 @@ RUN apt-get update && apt-get install -y netcat-openbsd && rm -rf /var/lib/apt/l
 
 # Install dependencies
 COPY requirements.txt .
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip --no-cache-dir && \
+    pip install -r requirements.txt --no-cache-dir
 
 # Copy project
 COPY . .
 
-# Copy entrypoint.sh
-COPY entrypoint.sh .
+# Set entrypoint permissions
 RUN chmod +x /usr/src/app/entrypoint.sh
 
 # Run entrypoint.sh
