@@ -1,0 +1,9 @@
+FROM atishaydev123/lead-collector:v1.1 AS backend
+
+WORKDIR /usr/src/app
+
+# Set entrypoint permissions
+RUN chmod +x /usr/src/app/entrypoint.sh
+
+# Run entrypoint.sh
+ENTRYPOINT ["sh","/usr/src/app/entrypoint.sh"]

@@ -19,8 +19,3 @@ RUN pip install --upgrade pip --no-cache-dir && \
 # Copy project
 COPY . .
 
-# Set entrypoint permissions
-RUN chmod +x /usr/src/app/entrypoint.sh
-
-# Run entrypoint.sh
-ENTRYPOINT ["sh","/usr/src/app/entrypoint.sh"]
