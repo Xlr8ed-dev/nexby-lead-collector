@@ -1,6 +1,6 @@
 Django==5.1.4
 django-allauth==65.3.1
-django-cors-headers==4.6.0
+django-cors-headers==4.9.0
 django-extensions==3.2.3
 django-phonenumber-field==8.0.0
 django-simple-history==3.7.0
@@ -19,3 +19,4 @@ gspread==6.1.0
 gspread-formatting==1.2.1
 beautifulsoup4==4.13.4
 openpyxl==3.1.2
+gunicorn==21.2.0
