@@ -7,11 +7,12 @@ router = routers.DefaultRouter()
 
 urlpatterns = router.urls + [
     path(
-        "contact_us/",
+        "contact-us/",
         ContactusViewset.as_view(
             {
-                "post": "Contact",
+                "post": "contact_us",
             }
         ),
-        name="Contact",
-    ), ]
+        name="contact-us",
+    ),
+]

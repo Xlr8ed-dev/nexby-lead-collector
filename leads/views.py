@@ -20,7 +20,7 @@ class ContactusViewset(viewsets.ViewSet):
         AllowAny,
     ]
 
-    def Contact(self, request):
+    def contact_us(self, request):
         try:
             serializer = ContactUsSerializer(data=request.data)
             if serializer.is_valid():
