@@ -1,0 +1,27 @@
+services:
+  lead-collector-api:
+    image: lead-collector:api
+    container_name: lead-collector-api
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    restart: always
+    volumes:
+      - ./lead-collector-static/:/usr/src/app/static/
+      - ./logs/:/usr/src/app/logs/
+    ports:
+      - "8001:8000"
+    env_file:
+      - .env
+
+  # web:
+  #   build: .
+  #   container_name: lead-collector
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - ./logs/:/usr/src/app/logs/
+  #     - ./lead-collector-static/:/usr/src/app/lead-collector-static/
+  #   ports:
+  #     - "8000:8000"
+  #   env_file:
+  #     - .env

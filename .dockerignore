@@ -1,0 +1,27 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+venv
+env
+*.venv
+
+# Environment variables
+.env
+
+# Static files (handled by volumes)
+lead-collector-static/
+staticfiles/
+
+# Logs
+logs/
+*.log
+
+# Docker
+Dockerfile
+docker-compose.yml
+db.sqlite3
