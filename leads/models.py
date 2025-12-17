@@ -80,3 +80,12 @@ class ContactUs(models.Model):
 
     def __str__(self):
         return f"{self.full_name} - {self.company_email} - {self.company_name} - {self.mobile_number} - {self.plan_details} - {self.country_code}"
+
+
+class GoogleSheetSyncStatus(models.Model):
+    table_name = models.CharField(max_length=50, unique=True)
+    last_synced_id = models.BigIntegerField(default=0)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.table_name} -> {self.last_synced_id}"

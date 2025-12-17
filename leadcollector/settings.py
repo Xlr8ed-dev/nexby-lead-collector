@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from celery.schedules import crontab
+
 
 load_dotenv(verbose=True, override=True)
 
@@ -167,3 +169,18 @@ CORS_ALLOW_METHODS = [
     "OPTIONS",
     "DELETE",
 ]
+
+GOOGLE_SERVICE_ACCOUNT_FILE = BASE_DIR / "secret-key.json"
+GOOGLE_SPREADSHEET_ID = "1iI6-sfNZt6xobYdq_WpU4BDm6wk0Jbf1biEOZSs9DH0"
+
+
+CELERY_BEAT_SCHEDULE = {
+    "sync-db-to-google-sheets-every-minute": {
+        "task": "app.tasks.sync_db_to_google_sheets",
+        "schedule": crontab(minute="*/1"),
+    },
+}
+
+CELERY_BROKER_URL = "redis://localhost:6379/0"
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
